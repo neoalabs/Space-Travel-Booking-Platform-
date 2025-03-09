@@ -1,7 +1,12 @@
 # main.py
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from sqlalchemy import inspect
 from typing import List, Optional
 from datetime import datetime, timedelta
 from pydantic import BaseModel
@@ -12,8 +17,20 @@ from database import engine, SessionLocal
 import models
 import schemas
 
-# Create database tables
-models.Base.metadata.create_all(bind=engine)
+# Create database tables - Add check to avoid recreating tables
+def create_tables():
+    # Create tables only if they don't exist
+    inspector = inspect(engine)
+    existing_tables = inspector.get_table_names()
+    
+    if "users" not in existing_tables:
+        models.Base.metadata.create_all(bind=engine)
+        print("Database tables created successfully!")
+    else:
+        print("Tables already exist, skipping creation.")
+
+# Create tables with safety check
+create_tables()
 
 app = FastAPI(title="Space Travel Booking API")
 
@@ -327,9 +344,9 @@ async def get_user_bookings(user_id: int, db: Session = Depends(get_db)):
         booking_with_details = schemas.BookingWithDetails(
             id=booking.id,
             user_id=booking.user_id,
-            destination=schemas.Destination.from_orm(destination),
-            seat_class=schemas.SeatClass.from_orm(seat_class),
-            accommodation=schemas.Accommodation.from_orm(accommodation),
+            destination=schemas.Destination.model_validate(destination),  # Changed from from_orm
+            seat_class=schemas.SeatClass.model_validate(seat_class),      # Changed from from_orm
+            accommodation=schemas.Accommodation.model_validate(accommodation),  # Changed from from_orm
             departure_date=booking.departure_date,
             return_date=booking.return_date,
             passengers=booking.passengers,

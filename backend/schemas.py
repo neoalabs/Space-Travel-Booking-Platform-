@@ -63,7 +63,7 @@ class Destination(DestinationBase):
     created_at: datetime
     
     class Config:
-        orm_mode = True
+        from_attributes = True  # Changed from orm_mode = True
 
 class SeatClass(SeatClassBase):
     id: int
@@ -71,7 +71,7 @@ class SeatClass(SeatClassBase):
     created_at: datetime
     
     class Config:
-        orm_mode = True
+        from_attributes = True  # Changed from orm_mode = True
 
 class Accommodation(AccommodationBase):
     id: int
@@ -79,7 +79,7 @@ class Accommodation(AccommodationBase):
     created_at: datetime
     
     class Config:
-        orm_mode = True
+        from_attributes = True  # Changed from orm_mode = True
 
 class Booking(BookingBase):
     id: int
@@ -89,7 +89,7 @@ class Booking(BookingBase):
     booking_date: datetime
     
     class Config:
-        orm_mode = True
+        from_attributes = True  # Changed from orm_mode = True
 
 class User(UserBase):
     id: int
@@ -102,7 +102,7 @@ class User(UserBase):
     created_at: datetime
     
     class Config:
-        orm_mode = True
+        from_attributes = True  # Changed from orm_mode = True
 
 # Extended schemas for more detailed responses
 class BookingWithDetails(BaseModel):
@@ -119,4 +119,4 @@ class BookingWithDetails(BaseModel):
     booking_date: datetime
     
     class Config:
-        orm_mode = True
+        from_attributes = True  # Changed from orm_mode = True

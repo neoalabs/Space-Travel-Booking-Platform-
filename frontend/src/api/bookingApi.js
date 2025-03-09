@@ -1,11 +1,12 @@
 // src/api/bookingApi.js
 import apiClient from './client';
+import { transformApiResponse } from '../utils/apiUtils';
 
 // Fetch available destinations
 export const fetchAvailableDestinations = async () => {
   try {
     const response = await apiClient.get('/destinations');
-    return response.data;
+    return transformApiResponse(response.data);
   } catch (error) {
     console.error('Error fetching destinations:', error);
     // For prototype, return dummy data in case backend is not running
@@ -48,7 +49,7 @@ export const fetchAvailableDestinations = async () => {
 export const fetchSeatClasses = async (destinationId) => {
   try {
     const response = await apiClient.get(`/destinations/${destinationId}/seat-classes`);
-    return response.data;
+    return transformApiResponse(response.data);
   } catch (error) {
     console.error('Error fetching seat classes:', error);
     // For prototype, return dummy data
@@ -82,7 +83,7 @@ export const fetchSeatClasses = async (destinationId) => {
 export const fetchAccommodations = async (destinationId) => {
   try {
     const response = await apiClient.get(`/destinations/${destinationId}/accommodations`);
-    return response.data;
+    return transformApiResponse(response.data);
   } catch (error) {
     console.error('Error fetching accommodations:', error);
     // For prototype, return dummy data
@@ -133,7 +134,7 @@ export const createBooking = async (bookingData) => {
     };
     
     const response = await apiClient.post('/bookings', backendBooking);
-    return response.data;
+    return transformApiResponse(response.data);
   } catch (error) {
     console.error('Error creating booking:', error);
     // For prototype, return success without making actual API call
@@ -141,7 +142,7 @@ export const createBooking = async (bookingData) => {
       id: Math.floor(Math.random() * 1000) + 100,
       ...bookingData,
       status: 'Confirmed',
-      booking_date: new Date().toISOString(),
+      bookingDate: new Date().toISOString(),
     };
   }
 };
