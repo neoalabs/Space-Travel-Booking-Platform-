@@ -332,7 +332,7 @@ const BookingPage = () => {
           </Stepper>
           
           {/* Progress indicator */}
-          <Box sx={{ position: 'relative', mt: 4, mx: 'auto', width: '80%', mb: 6 }}>
+          <Box sx={{ position: 'relative', mt: 2, mx: 'auto', width: '80%', mb: 10 }}>
             <Box sx={{ height: 5, bgcolor: 'rgba(140, 158, 255, 0.1)', borderRadius: 2 }} />
             <Box
               component={motion.div}
