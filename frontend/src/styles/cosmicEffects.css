@@ -1,0 +1,30 @@
+/* src/styles/cosmicEffects.css */
+
+.cosmic-gradient-text {
+    background: linear-gradient(90deg, #8C9EFF 0%, #BB86FC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .cosmic-glow {
+    box-shadow: 0 0 15px rgba(140, 158, 255, 0.4);
+  }
+  
+  .mars-glow {
+    box-shadow: 0 0 15px rgba(255, 158, 128, 0.4);
+  }
+  
+  .space-card {
+    background: rgba(22, 27, 51, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(140, 158, 255, 0.15);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  .space-card:hover {
+    box-shadow: 0 0 20px rgba(140, 158, 255, 0.3);
+    transform: translateY(-4px);
+    border-color: rgba(140, 158, 255, 0.3);
+  }

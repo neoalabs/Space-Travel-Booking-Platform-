@@ -15,47 +15,47 @@ import UserDashboard from './pages/UserDashboard';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 
-// Create dark theme
-const darkTheme = createTheme({
+// Create a more dynamic theme in App.js
+const spaceTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#8C9EFF', // Soft blue
+      main: '#8C9EFF', // Cosmic blue
+      light: '#BBDEFB',
+      dark: '#3D5AFE',
     },
     secondary: {
-      main: '#FF9E80', // Soft orange
+      main: '#FF9E80', // Mars orange
+      light: '#FFCCBC',
+      dark: '#FF6E40',
+    },
+    accent: {
+      main: '#BB86FC', // Nebula purple
+      light: '#E1BEE7',
+      dark: '#9C27B0',
     },
     background: {
-      default: '#121212',
-      paper: '#1E1E1E',
+      default: '#0B0D1B', // Deep space
+      paper: '#161B33', // Night sky
+      subtle: '#1C2046', // Cosmic indigo
     },
   },
   typography: {
     fontFamily: '"Outfit", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
       fontWeight: 700,
+      letterSpacing: '-0.015em',
     },
-  },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: 28,
-        },
-        contained: {
-          boxShadow: 'none',
-          '&:hover': {
-            boxShadow: '0 8px 16px 0 rgba(140, 158, 255, 0.2)',
-          },
-        },
-      },
+    h2: {
+      fontWeight: 600,
+      letterSpacing: '-0.01em',
     },
   },
 });
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={spaceTheme}>
       <CssBaseline />
       <Router>
         <Navbar />

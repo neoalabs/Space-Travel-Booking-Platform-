@@ -14,11 +14,14 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.8.2",
     "date-fns": "2.29.3",
+    "framer-motion": "^12.4.10",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.3.0",
     "react-scripts": "5.0.1",
+    "react-tsparticles": "^2.12.2",
     "recharts": "^2.15.1",
+    "tsparticles": "^3.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
