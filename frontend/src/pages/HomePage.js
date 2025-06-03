@@ -731,7 +731,7 @@ const HomePage = () => {
                     >
                       <RocketLaunchIcon />
                     </Box>
-                    From ${destination.price.toLocaleString()}
+                    {`From $${destination.price.toLocaleString()}`}
                   </Typography>
                 </CardContent>
                 

@@ -62,9 +62,9 @@ const DestinationsPage = () => {
                 </Typography>
                 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 2 }}>
-                  <Typography variant="h6" color="primary">
-                    From ${destination.basePrice.toLocaleString()}
-                  </Typography>
+                    <Typography variant="h6" color="primary">
+                      {`From $${destination.basePrice.toLocaleString()}`}
+                    </Typography>
                   <Typography variant="body2" color="text.secondary">
                     Next launch: {destination.nextLaunch}
                   </Typography>

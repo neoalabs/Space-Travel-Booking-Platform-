@@ -981,7 +981,7 @@ const AccommodationsPage = () => {
                         }}
                       >
                         <Typography variant="h6" sx={{ fontWeight: 700, color: theme.palette.primary.main }}>
-                          ${accommodation.price.toLocaleString()}
+                          {`$${accommodation.price.toLocaleString()}`}
                         </Typography>
                         <Typography variant="caption" sx={{ display: 'block', textAlign: 'center' }}>
                           {accommodation.perNight ? 'per night' : 'per stay'}
