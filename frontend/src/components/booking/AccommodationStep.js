@@ -499,7 +499,7 @@ const AccommodationStep = ({ bookingData, availableAccommodations, onBookingData
                             color={theme.palette.primary.main} 
                             sx={{ fontWeight: 700 }}
                           >
-                            ${accommodation.pricePerNight.toLocaleString()}
+                            {`$${accommodation.pricePerNight.toLocaleString()}`}
                           </Typography>
                           <Typography variant="caption" color="rgba(255, 255, 255, 0.7)">
                             per night
@@ -706,10 +706,10 @@ const AccommodationStep = ({ bookingData, availableAccommodations, onBookingData
                             >
                               <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                                 <Typography variant="body2" color="rgba(255, 255, 255, 0.7)">
-                                  ${accommodation.pricePerNight.toLocaleString()} × {duration} nights
+                                  {`$${accommodation.pricePerNight.toLocaleString()} × ${duration} nights`}
                                 </Typography>
                                 <Typography variant="body2" color="white" fontWeight={500}>
-                                  ${(accommodation.pricePerNight * duration).toLocaleString()}
+                                  {`$${(accommodation.pricePerNight * duration).toLocaleString()}`}
                                 </Typography>
                               </Box>
                               
@@ -800,7 +800,7 @@ const AccommodationStep = ({ bookingData, availableAccommodations, onBookingData
                       {bookingData.accommodation.name}
                     </Typography>
                     <Typography variant="body2" color="rgba(255, 255, 255, 0.7)">
-                      {duration} nights at ${bookingData.accommodation.pricePerNight.toLocaleString()} per night
+                      {`${duration} nights at $${bookingData.accommodation.pricePerNight.toLocaleString()} per night`}
                     </Typography>
                   </Box>
                 </Box>
